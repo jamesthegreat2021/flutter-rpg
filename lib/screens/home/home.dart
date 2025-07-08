@@ -14,17 +14,17 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Characters'),
+        title: const StyledText('Your Characters'),
         centerTitle: true,
       ),
       body: Container(
         padding: EdgeInsets.all(16),
         child: Column(
           children: <Widget> [
-            const Text('character list'), 
-            StyledHeading('this is james'),
-            StyledText('james memba'), 
-            StyledTitle('james memba'),
+             
+            StyledHeading('character list'),
+            StyledText('character list'), 
+            StyledTitle('character list'),
             FilledButton(
               onPressed: () {}, 
               child: Text('create new'),
