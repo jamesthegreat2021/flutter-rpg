@@ -18,7 +18,15 @@ class _HomeState extends State<Home> {
       ),
       body: Container(
         padding: EdgeInsets.all(16),
-        child: const Text('Home'),
+        child: Column(
+          children: <Widget> [
+            const Text('character list'), 
+            FilledButton(
+              onPressed: () {}, 
+              child: Text('create new'),
+              )
+          ],
+        ),
       ),
     );
   }
