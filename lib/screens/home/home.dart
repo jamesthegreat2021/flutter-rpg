@@ -21,6 +21,7 @@ class _HomeState extends State<Home> {
         child: Column(
           children: <Widget> [
             const Text('character list'), 
+            Text('hello this is james', style: Theme.of(context).textTheme.titleMedium,),
             FilledButton(
               onPressed: () {}, 
               child: Text('create new'),
