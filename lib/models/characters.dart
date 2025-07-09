@@ -1,12 +1,15 @@
 import 'package:flutter_rpg/models/stats.dart';
+import 'package:flutter_rpg/models/vocation.dart';
 
 class Character with Stats {
 Character({
   required this.name, 
   required this.slogan, 
   required this.id,
+  required this.vocation,
 });
 
+final Vocation vocation; 
 final String name; 
 final String slogan; 
 final String  id;
