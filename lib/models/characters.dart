@@ -1,3 +1,4 @@
+import 'package:flutter_rpg/models/skill.dart';
 import 'package:flutter_rpg/models/stats.dart';
 import 'package:flutter_rpg/models/vocation.dart';
 
@@ -13,6 +14,7 @@ final Vocation vocation;
 final String name; 
 final String slogan; 
 final String  id;
+final Set<Skill> skills = {};
 bool _isFav = false;
 
 //allows access to private properties, it is a return type function with bool expected to be returned
@@ -21,6 +23,11 @@ bool get isFav => _isFav;
 
 void toggleIsFav(){
   _isFav = !_isFav;
+}
+
+void updateSkill(Skill skill){
+  skills.clear(); 
+  skills.add(skill);
 }
 
 
