@@ -44,12 +44,48 @@ class _CreateState extends State<Create> {
   //submitting handler
 
   void handleSubmit(){
+    
     if(_nameController.text.trim().isEmpty){
       //show error dialogue
+      showDialog(context: context, builder: (ctx){
+        //flutter treats the dialogue just like a route, so if we need to return we will need the navigator.pop
+        return AlertDialog(
+          title: StyledHeading('Missing character name'),
+          content: StyledText('Every good RPG character needs a great name.....'),
+          actions: [
+            StyledButton(
+              onPressed: (){
+                Navigator.pop(ctx);
+              },
+              child: const StyledHeading('Close'),
+              ),
+          ],
+          actionsAlignment: MainAxisAlignment.center,
+        );
+      });
+      return;
     }
     //trim will remove the white spaces//
     if(_sloganController.text.trim().isEmpty) {
       //show error dialogue
+
+       showDialog(context: context, builder: (ctx){
+        //flutter treats the dialogue just like a route, so if we need to return we will need the navigator.pop
+        return AlertDialog(
+          title: StyledHeading('Missing character slogun'),
+          content: StyledText('Remember to add a catch slogan.....'),
+          actions: [
+            StyledButton(
+              onPressed: (){
+                Navigator.pop(ctx);
+              },
+              child: const StyledHeading('Close'),
+              ),
+          ],
+          actionsAlignment: MainAxisAlignment.center,
+        );
+      });
+      return;
     }
     characters.add(
       Character(
