@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rpg/models/characters.dart';
 import 'package:flutter_rpg/models/vocation.dart';
 import 'package:flutter_rpg/screens/create/vocation_card.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/styled_button.dart';
 import 'package:flutter_rpg/theme.dart';
 import 'package:google_fonts/google_fonts.dart'; 
+import 'package:uuid/uuid.dart';
+
+var uuid = const Uuid(); 
 
 class Create extends StatefulWidget {
   const Create({super.key});
@@ -17,6 +21,7 @@ class _CreateState extends State<Create> {
 
   final _nameController = TextEditingController();
   final _sloganController = TextEditingController(); 
+
   @override
   void dispose(){
     _nameController.dispose();
@@ -24,20 +29,35 @@ class _CreateState extends State<Create> {
     super.dispose();
   }
 
+  //handling vocations selection
+  Vocation selectedVocaton = Vocation.junkie;
+
+
+//this is tricky but understandable
+  void updateVocation(Vocation vocation){
+   setState(() {
+     selectedVocaton = vocation;
+   });
+  }
+
   //submitting handler
 
   void handleSubmit(){
     if(_nameController.text.trim().isEmpty){
-      print('Name must not be empty');
-      return;
+      //show error dialogue
     }
     //trim will remove the white spaces//
     if(_sloganController.text.trim().isEmpty) {
-      print('Slogan field must not be empty');
-      return;
+      //show error dialogue
     }
-    print(_nameController.text); 
-    print(_sloganController.text);
+    characters.add(
+      Character(
+        name: _nameController.text.trim(), 
+        slogan: _sloganController.text.trim(), 
+        id: uuid.v4(), 
+        vocation: selectedVocaton
+        )
+    ); 
   }
 
   @override
@@ -101,19 +121,46 @@ class _CreateState extends State<Create> {
                 child: StyledText('This determines your available skills'),
               ),
               const SizedBox(height: 30,),
-        
-              const VocationCard(
+
+        //remember the function will only be the property of the object 
+        //whenever the user does taps it will be automatically invoked triggering the widget build
+
+            VocationCard(
+              //these are constants instances, they will have to be the same
+              selected: selectedVocaton == Vocation.junkie,
+                onTap: updateVocation,
                  vocation: Vocation.junkie,
               ),
-              const VocationCard(
+            VocationCard(
+              selected: selectedVocaton == Vocation.ninja,
+                onTap: updateVocation,
                 vocation: Vocation.ninja,
               ),
-              const VocationCard(
+              VocationCard(
+                selected: selectedVocaton == Vocation.raider, 
+                onTap: updateVocation,
                 vocation: Vocation.raider,
               ),
-              const VocationCard(
+           VocationCard(
+            selected: selectedVocaton == Vocation.wizard,
+                onTap: updateVocation,
                 vocation: Vocation.wizard,
               ),
+              const SizedBox(
+                height: 30,),
+
+              Center(
+                child: Icon(Icons.code, color: AppColors.primaryColor,),
+        
+              ),
+              Center(
+                child: StyledHeading('Good Luck'),
+              ),
+              const Center(
+                child: StyledText('And enjoy the journey'),
+              ),
+              const SizedBox(
+                height: 30,),
         
         
               StyledButton(
