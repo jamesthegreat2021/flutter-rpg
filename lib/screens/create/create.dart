@@ -157,7 +157,7 @@ class _CreateState extends State<Create> {
                 child: StyledHeading('Good Luck'),
               ),
               const Center(
-                child: StyledText('And enjoy the journey'),
+                child: StyledText('And enjoy the journey........'),
               ),
               const SizedBox(
                 height: 30,),
