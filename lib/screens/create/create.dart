@@ -50,6 +50,7 @@ class _CreateState extends State<Create> {
       showDialog(context: context, builder: (ctx){
         //flutter treats the dialogue just like a route, so if we need to return we will need the navigator.pop
         return AlertDialog(
+         
           title: StyledHeading('Missing character name'),
           content: StyledText('Every good RPG character needs a great name.....'),
           actions: [
@@ -72,6 +73,7 @@ class _CreateState extends State<Create> {
        showDialog(context: context, builder: (ctx){
         //flutter treats the dialogue just like a route, so if we need to return we will need the navigator.pop
         return AlertDialog(
+          
           title: StyledHeading('Missing character slogun'),
           content: StyledText('Remember to add a catch slogan.....'),
           actions: [
