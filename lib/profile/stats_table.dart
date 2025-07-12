@@ -32,6 +32,57 @@ class _StatsTableState extends State<StatsTable> {
               StyledHeading(widget.character.points.toString())
             ],),
           ),
+          Table(
+            children: widget.character.statsAsFormattedList.map((stat) {
+              return TableRow(
+                children: <Widget>[
+
+                  //title stats
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8), 
+                      //! ! is used to say that the value will not be null
+                      child: StyledHeading(stat['title']!)
+                    ),
+                  ),
+                 //stats values
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: Padding(
+                      padding: EdgeInsets.all(8),
+                      //this is the case for the null safety
+                      child: StyledHeading(stat['value']!),
+                    ),
+                  ), 
+                 //an icon to increase stats
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_upward),
+                      color: AppColors.textColor,
+                      onPressed: (){},
+                    ),
+                  ),
+
+
+
+                 // an icon to decrease stats
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_downward),
+                      color: AppColors.textColor,
+                      onPressed: (){},
+                    ),
+                  ),
+
+                  
+
+                ],
+              );
+            }).toList(),
+          ),
         ],
       ),
       
