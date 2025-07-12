@@ -36,7 +36,8 @@ void incrementStats(String stat){
     }
     if (stat == "skills") {
       _skills++;
-    } 
+    }
+    _points--; 
   }
 }
 

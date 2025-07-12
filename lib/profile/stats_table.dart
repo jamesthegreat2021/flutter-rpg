@@ -35,6 +35,9 @@ class _StatsTableState extends State<StatsTable> {
           Table(
             children: widget.character.statsAsFormattedList.map((stat) {
               return TableRow(
+                decoration: BoxDecoration(
+                  color: AppColors.secondaryColor.withOpacity(0.5),
+                ),
                 children: <Widget>[
 
                   //title stats
@@ -61,7 +64,12 @@ class _StatsTableState extends State<StatsTable> {
                     child: IconButton(
                       icon: Icon(Icons.arrow_upward),
                       color: AppColors.textColor,
-                      onPressed: (){},
+                      onPressed: (){
+                        setState((){
+                         widget.character.incrementStats(stat['title']!);
+                        });
+                        
+                      },
                     ),
                   ),
 
@@ -73,7 +81,11 @@ class _StatsTableState extends State<StatsTable> {
                     child: IconButton(
                       icon: Icon(Icons.arrow_downward),
                       color: AppColors.textColor,
-                      onPressed: (){},
+                      onPressed: (){
+                        setState((){
+                          widget.character.decreaseStat(stat['title']!);
+                        });
+                      },
                     ),
                   ),
 
