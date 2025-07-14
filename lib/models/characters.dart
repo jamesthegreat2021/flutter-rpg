@@ -52,7 +52,7 @@ Map<String, dynamic> toFirestore(){
 //characrer from firestore
 factory Character.fromFirestore(
   DocumentSnapshot<Map<String,dynamic>> snapshot,
-  SnapshotOptions options,
+  SnapshotOptions? options,
 )
 {
   //get data from the snapshot
@@ -80,10 +80,10 @@ factory Character.fromFirestore(
   }
 
   //setter to set the stats and points to the newly created object indeed
-  character.setStats(points: data['points'], stats: data['stats']);
+  character.setStats(points: data['points'], stats: data['stats']); 
 
 
-  return character;
+return character;
 
 }
 
