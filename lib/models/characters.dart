@@ -67,7 +67,8 @@ factory Character.fromFirestore(
 ); 
    //updating the skills
 
-  for (String id in data['skills']){
+  for (String id in data['skills'])
+  {
     Skill skill = allSkills.firstWhere((element) => element.id == id );
     character.updateSkill(skill); 
 
@@ -78,11 +79,12 @@ factory Character.fromFirestore(
     character.toggleIsFav();
   }
 
+  //setter to set the stats and points to the newly created object indeed
+  character.setStats(points: data['points'], stats: data['stats']);
+
 
   return character;
 
-
-
-
 }
 
+}
