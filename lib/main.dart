@@ -10,7 +10,7 @@ import 'firebase_options.dart';
 
 // ...
 
-void main() async {
+void main() async { 
   //this makes the firebase to work correctly
   WidgetsFlutterBinding.ensureInitialized(); 
 
