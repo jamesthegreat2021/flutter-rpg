@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "192031196065",
+    "project_id": "flutter-masterclass-7380c",
+    "storage_bucket": "flutter-masterclass-7380c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192031196065:android:303f524e2ecafc478c41e0",
+        "android_client_info": {
+          "package_name": "com.example.flutter_rpg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKgDcXU-D5DWZ9MT1-6umz7Q4LEJwsE3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
