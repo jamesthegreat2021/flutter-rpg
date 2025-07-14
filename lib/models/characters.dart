@@ -30,10 +30,21 @@ void updateSkill(Skill skill){
   skills.add(skill);
 }
 
+//character to firestore
+//recall the data needs to  be serialized to a certain format
+
+Map<String, dynamic> toFirestore(){
+  return {
+    'name': name,
+    'slogan': slogan,
+    'isFav': _isFav,
+    'vocation': vocation.toString(),
+    'skills': skills.map((s)=>s.id).toList(), 
+    'stats': statsAsMap, 
+    'points': points
+  };
+}
 
 
 }
 
-List<Character> characters = [
- 
-];
