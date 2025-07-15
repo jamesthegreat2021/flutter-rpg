@@ -23,6 +23,13 @@ class CharacterStore extends ChangeNotifier{
     return;
   }
 
+  //deleting the character 
+  void removeCharacter(Character character) async {
+  await FirestoreService.deleteCharacter(character);
+  _characters.remove(character);
+  notifyListeners(); 
+  }
+
   void fetchCharactersOnce() async {
     if (characters.length == 0){
       final snapshot = await FirestoreService.getCharactersOnce();

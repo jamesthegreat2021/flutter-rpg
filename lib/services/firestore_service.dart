@@ -4,7 +4,8 @@ import 'package:flutter_rpg/models/characters.dart';
 class FirestoreService {
   //the static method because it can be accessed directly without instantiating the class
 
-  //static lasses and methods arent accessed from the class itself instead they are accessed from the instances
+  //static methods and properties are accessed through calling the class name and method, no need of creating and instatiting the class
+
 
   static final ref = FirebaseFirestore.instance
   .collection('characters')
@@ -32,6 +33,14 @@ class FirestoreService {
     'skills': character.skills.map((skill)=> skill.id).toList(),
     'isFav': character.isFav,
    });
+
+   //deleting the character 
+   
+   }
+   static Future<void> deleteCharacter(Character character) async {
+      await ref.doc(character.id).delete();
+
+
   }
 
 
