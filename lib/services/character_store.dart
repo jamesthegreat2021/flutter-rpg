@@ -1,7 +1,7 @@
 //changenotifiers will actuall notify all the listeners indeed
 import 'package:flutter/material.dart';
 import 'package:flutter_rpg/models/characters.dart';
-import 'package:flutter_rpg/models/vocation.dart';
+
 import 'package:flutter_rpg/services/firestore_service.dart'; 
 
 class CharacterStore extends ChangeNotifier{
