@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rpg/models/characters.dart';
 import 'package:flutter_rpg/profile/skill_list.dart';
 import 'package:flutter_rpg/profile/stats_table.dart';
+import 'package:flutter_rpg/services/character_store.dart';
+import 'package:flutter_rpg/shared/styled_button.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/theme.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatelessWidget {
   const Profile({
@@ -72,6 +75,7 @@ class Profile extends StatelessWidget {
                     const StyledHeading("Unique ability"), 
                     StyledText(character.vocation.ability), 
                     const SizedBox(height: 10,), 
+
                     
                     
                   ],
@@ -85,6 +89,23 @@ class Profile extends StatelessWidget {
                 children: <Widget>[
                   StatsTable(character),
                   SkillList(character), 
+
+                  StyledButton(onPressed: () {
+              // update in db
+              Provider.of<CharacterStore>(context, listen: false)
+                .saveCharacter(character);
+
+              // show snackbar
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: const StyledHeading('Character saved.'),
+                showCloseIcon: true,
+                backgroundColor: AppColors.secondaryColor,
+                duration: const Duration(seconds: 2),
+              ));
+
+            }, child: const StyledHeading('save character')),
+            const SizedBox(height: 20),
+
                 ],
               ),
             ),

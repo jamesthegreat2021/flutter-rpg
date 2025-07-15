@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -64,6 +61,15 @@ class DefaultFirebaseOptions {
     projectId: 'flutter-masterclass-7380c',
     storageBucket: 'flutter-masterclass-7380c.firebasestorage.app',
     iosBundleId: 'com.example.flutterRpg',
+  );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyB0yfjqiAh3Ddi7aCjV4njzXsfpiXYlWks',
+    appId: '1:192031196065:web:59d6aaac84a117e88c41e0',
+    messagingSenderId: '192031196065',
+    projectId: 'flutter-masterclass-7380c',
+    authDomain: 'flutter-masterclass-7380c.firebaseapp.com',
+    storageBucket: 'flutter-masterclass-7380c.firebasestorage.app',
   );
 
 }

@@ -16,6 +16,15 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+
+//recall that this runs before the build function
+  @override
+  void initState() {
+   Provider.of<CharacterStore>(context, listen: false)
+   .fetchCharactersOnce();
+    super.initState();
+  }
+
  //update the list to characters
 
   @override

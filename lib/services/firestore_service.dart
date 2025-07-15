@@ -12,7 +12,27 @@ class FirestoreService {
     fromFirestore: Character.fromFirestore,  
     toFirestore: (Character c, _) => c.toFirestore(),
     );
+  
 
+  //add a new character
+  static Future<void> addCharacter(Character character) async{
+    await ref.doc(character.id).set(character);
+  }
+
+  //query data from the database
+  static Future<QuerySnapshot<Character>> getCharactersOnce() {
+    return ref.get();
+  }
+
+  //updating the character even after being  created
+  static Future<void> updateCharacter(Character character) async{
+   await ref.doc(character.id).update({
+    'stats': character.statsAsMap, 
+    'points': character.points,
+    'skills': character.skills.map((skill)=> skill.id).toList(),
+    'isFav': character.isFav,
+   });
+  }
 
 
 }

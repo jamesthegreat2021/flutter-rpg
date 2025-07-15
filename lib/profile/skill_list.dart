@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rpg/models/characters.dart';
 import 'package:flutter_rpg/models/skill.dart';
-import 'package:flutter_rpg/shared/styled_button.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/theme.dart';
+
 
 class SkillList extends StatefulWidget {
   const SkillList(this.character, {super.key});
@@ -71,20 +71,7 @@ class _SkillListState extends State<SkillList> {
           StyledText(selectedSkill.name),
 
           //save the user to the database//
-          StyledButton(
-            onPressed: (){
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: const StyledHeading('Character was saved'),
-                  showCloseIcon: true,
-                  duration: Duration(seconds: 2),
-
-                  backgroundColor: AppColors.secondaryColor,
-                ));
-            },
-             child: const StyledHeading("Save Character"), 
-             ),
-             const SizedBox(height: 20,)
+          
         ],),
       ),
     );
