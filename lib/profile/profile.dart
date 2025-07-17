@@ -54,7 +54,7 @@ class Profile extends StatelessWidget {
                 ],
               ),
             ),
-            Heart(character: character),
+          Heart(character: character),
 
             const SizedBox(height: 20),
             Center(
