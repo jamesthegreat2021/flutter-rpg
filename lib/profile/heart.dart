@@ -13,6 +13,8 @@ class Heart extends StatefulWidget {
 class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
   late AnimationController _controller; 
 
+  //a ticker gives a signal(tick) on each animation frame// 
+
   @override
   void initState() {
     _controller = AnimationController(
